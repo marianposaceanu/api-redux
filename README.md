@@ -1,4 +1,6 @@
-# Opinionated practices for creating an API hence API Redux
+# API Redux
+
+Opinionated practices for creating, documenting an API.
 
 ### Table of contents
 
