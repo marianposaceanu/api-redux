@@ -4,19 +4,21 @@ Opinionated practices for creating, documenting and managing APIs.
 
 ### Table of contents
 
-- __Prerequisites__
-- __Security et al__
- - [OAuth 2.0 ROPC](#api-security)
- - [JSON Web Tokens](#headers)
+- __[Prerequisites](#prerequisites)__
+ - [HTTP Codes](#http-codes)
+- __[Security et al.](#security-et-al.)__
+ - [OAuth 2.0 ROPC](#oauth-20-ropc)
+ - [JSON Web Tokens](#json-web-tokens)
 
 ## Prerequisites
+
+### HTTP Codes
 
 ## Security et al
 
 ### OAuth 2.0 ROPC
 
 ### JSON Web Tokens
-
 
 ### Credits
 
