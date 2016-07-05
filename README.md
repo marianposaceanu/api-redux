@@ -6,7 +6,7 @@ Opinionated practices for creating, documenting and managing APIs.
 
 - __[Prerequisites](#prerequisites)__
  - [HTTP Codes](#http-codes)
-- __[Security et al.](#security-et-al.)__
+- __[Security et al.](#security-et-al)__
  - [OAuth 2.0 ROPC](#oauth-20-ropc)
  - [JSON Web Tokens](#json-web-tokens)
 
