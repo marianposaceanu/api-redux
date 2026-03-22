@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :catalog, only: :index
     resources :devices, only: :create
     resources :diagnostics, only: :show
+    resources :downloads, only: :show
     resources :events, only: :index
     resources :exports, only: :create
     resources :invoices, only: :show
@@ -34,8 +35,10 @@ Rails.application.routes.draw do
     end
     resources :operations, only: :show
     resources :orders, only: %i[index create show]
+    resources :projects, only: %i[show destroy]
     resources :products, only: :show
     resources :registrations, only: :create
+    resources :refunds, only: :create
     resources :searches, only: :index
     resource :profile, only: %i[show update], controller: :profile
 

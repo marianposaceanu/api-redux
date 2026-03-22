@@ -1,0 +1,23 @@
+# Full download advertises byte-range support
+GET /v1/downloads/dl_123 HTTP/1.1
+Host: api.example.test
+
+HTTP/1.1 200 OK
+Accept-Ranges: bytes
+ETag: "download-v1"
+
+# Resume with a byte range request
+GET /v1/downloads/dl_123 HTTP/1.1
+Host: api.example.test
+Range: bytes=0-9
+
+HTTP/1.1 206 Partial Content
+Content-Range: bytes 0-9/36
+
+# Invalid ranges return 416 with the total size
+GET /v1/downloads/dl_123 HTTP/1.1
+Host: api.example.test
+Range: bytes=200-250
+
+HTTP/1.1 416 Range Not Satisfiable
+Content-Range: bytes */36

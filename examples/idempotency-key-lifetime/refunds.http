@@ -1,0 +1,25 @@
+# A fresh key creates the refund and advertises the dedupe ttl
+POST /v1/refunds HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+Idempotency-Key: refund-key-123
+
+{
+  "amount_cents": 1200
+}
+
+HTTP/1.1 201 Created
+Idempotency-Key-Ttl: 86400
+Location: /v1/refunds/rf_123
+
+# An expired key no longer guarantees deduplication
+POST /v1/refunds HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+Idempotency-Key: refund-expired-key
+
+{
+  "amount_cents": 1200
+}
+
+HTTP/1.1 409 Conflict

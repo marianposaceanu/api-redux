@@ -17,6 +17,9 @@ bin/rails test
 
 Example implementation map:
 
+- Idempotency key lifetime: `app/controllers/v1/refunds_controller.rb`, `test/integration/idempotency_key_lifetime_test.rb`
+- Soft deletes, tombstones and purge windows: `app/controllers/v1/projects_controller.rb`, `test/integration/soft_deletes_test.rb`
+- Range requests and resumable downloads: `app/controllers/v1/downloads_controller.rb`, `test/integration/range_requests_test.rb`
 - Quota policy and reset semantics: `app/controllers/v1/searches_controller.rb`, `test/integration/quota_policy_test.rb`
 - Cursor invalidation and snapshot pagination: `app/controllers/v1/events_controller.rb`, `test/integration/cursor_snapshot_pagination_test.rb`
 - Webhook ordering and deduplication windows: `app/controllers/v1/webhooks/shipments_controller.rb`, `test/integration/webhook_ordering_test.rb`

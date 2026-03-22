@@ -1,0 +1,13 @@
+# Deleting marks the project as recoverable until the purge deadline
+DELETE /v1/projects/proj_123 HTTP/1.1
+Host: api.example.test
+
+HTTP/1.1 202 Accepted
+Content-Type: application/json
+
+# Reads can return a tombstone while the resource is deleted but recoverable
+GET /v1/projects/proj_deleted HTTP/1.1
+Host: api.example.test
+
+HTTP/1.1 410 Gone
+Content-Type: application/json
