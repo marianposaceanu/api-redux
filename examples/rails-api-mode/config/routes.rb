@@ -20,8 +20,16 @@ Rails.application.routes.draw do
 
   namespace :v1 do
     resources :appointments, only: :index
+    resources :customers, only: :index
     resources :catalog, only: :index
+    resources :libraries, only: [] do
+      resources :books, only: %i[index show]
+    end
     resources :orders, only: %i[index create show]
+    resources :registrations, only: :create
+    resource :profile, only: %i[show update], controller: :profile
+
+    get "reports/finance", to: "reports#show"
 
     namespace :jwt do
       get :claims, to: "claims#show"

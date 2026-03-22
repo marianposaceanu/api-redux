@@ -1,0 +1,31 @@
+# Missing token returns 401
+GET /v1/reports/finance HTTP/1.1
+Host: api.example.test
+
+HTTP/1.1 401 Unauthorized
+WWW-Authenticate: Bearer realm="api", error="invalid_token"
+Content-Type: application/json
+
+{
+  "error": {
+    "code": "invalid_token",
+    "message": "A bearer token is required."
+  }
+}
+
+# Valid token but missing scope returns 403
+GET /v1/reports/finance HTTP/1.1
+Host: api.example.test
+Authorization: Bearer at_123
+X-Scopes: orders:read
+
+HTTP/1.1 403 Forbidden
+Content-Type: application/json
+
+{
+  "error": {
+    "code": "insufficient_scope",
+    "message": "The token does not grant reports:read.",
+    "required_scope": "reports:read"
+  }
+}

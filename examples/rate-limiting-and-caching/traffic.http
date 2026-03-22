@@ -1,0 +1,16 @@
+# Rate-limited request
+GET /widgets?simulate=rate_limit HTTP/1.1
+Host: api.example.test
+
+HTTP/1.1 429 Too Many Requests
+Retry-After: 60
+Content-Type: application/json
+
+# Cacheable request
+GET /v1/catalog HTTP/1.1
+Host: api.example.test
+If-None-Match: "catalog-v14"
+
+HTTP/1.1 304 Not Modified
+Cache-Control: public, max-age=60, stale-while-revalidate=30
+ETag: "catalog-v14"

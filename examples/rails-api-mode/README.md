@@ -17,6 +17,14 @@ bin/rails test
 
 Example implementation map:
 
+- Resources and URL design: `app/controllers/v1/books_controller.rb`, `test/integration/resources_url_design_test.rb`
+- Authentication and authorization: `app/controllers/v1/reports_controller.rb`, `test/integration/authentication_authorization_test.rb`
+- Request and response conventions: `app/controllers/v1/profile_controller.rb`, `test/integration/request_response_conventions_test.rb`
+- Errors and validation: `app/controllers/v1/registrations_controller.rb`, `test/integration/errors_validation_test.rb`
+- Pagination, filtering, sorting: `app/controllers/v1/customers_controller.rb`, `test/integration/pagination_filtering_sorting_test.rb`
+- Versioning and deprecation: `app/controllers/v0/appointments_controller.rb`, `app/controllers/v1/appointments_controller.rb`, `test/integration/versioning_deprecation_test.rb`
+- Rate limiting and caching: `app/controllers/widgets_controller.rb`, `app/controllers/v1/catalog_controller.rb`, `test/integration/rate_limiting_caching_test.rb`
+- Idempotency and retries: `app/controllers/v1/payments/captures_controller.rb`, `test/integration/idempotency_retries_test.rb`
 - HTTP status codes: `app/controllers/widgets_controller.rb`, `test/integration/http_status_codes_flow_test.rb`
 - HTTP API design: `app/controllers/v1/orders_controller.rb`, `test/integration/http_api_design_test.rb`
 - GOV.UK APIs: `app/controllers/v1/appointments_controller.rb`, `app/controllers/v0/appointments_controller.rb`, `test/integration/gov_uk_apis_test.rb`

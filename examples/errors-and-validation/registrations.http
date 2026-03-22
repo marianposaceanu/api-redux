@@ -1,0 +1,12 @@
+# Invalid registration returns field-level validation details
+POST /v1/registrations HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+
+{
+  "email": "invalid",
+  "password": "short"
+}
+
+HTTP/1.1 422 Unprocessable Entity
+Content-Type: application/json

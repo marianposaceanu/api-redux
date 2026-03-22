@@ -1,0 +1,17 @@
+{
+  "error": {
+    "code": "validation_failed",
+    "message": "One or more attributes are invalid.",
+    "request_id": "req_validation_123",
+    "details": [
+      {
+        "field": "email",
+        "message": "must be present and contain @"
+      },
+      {
+        "field": "password",
+        "message": "must be at least 12 characters"
+      }
+    ]
+  }
+}

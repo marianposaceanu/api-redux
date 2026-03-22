@@ -1,0 +1,32 @@
+# List a nested collection with noun-based URLs
+GET /v1/libraries/lib_123/books HTTP/1.1
+Host: api.example.test
+Accept: application/json
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "data": [
+    {
+      "id": "book_001",
+      "type": "book",
+      "attributes": {
+        "title": "API Design Patterns",
+        "status": "available"
+      },
+      "links": {
+        "self": "/v1/libraries/lib_123/books/book_001",
+        "collection": "/v1/libraries/lib_123/books"
+      }
+    }
+  ],
+  "links": {
+    "self": "/v1/libraries/lib_123/books"
+  }
+}
+
+# Fetch a single nested resource
+GET /v1/libraries/lib_123/books/book_001 HTTP/1.1
+Host: api.example.test
+Accept: application/json

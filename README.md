@@ -6,10 +6,28 @@ Opinionated practices for creating, documenting and managing APIs.
 
 - __[Prerequisites](#prerequisites)__
   - [HTTP Codes](#http-codes)
+- __[API Design](#api-design)__
+  - [Resources and URL Design](#resources-and-url-design)
+  - [Request and Response Conventions](#request-and-response-conventions)
+  - [Errors and Validation](#errors-and-validation)
+  - [Pagination, Filtering and Sorting](#pagination-filtering-and-sorting)
+  - [Versioning and Deprecation](#versioning-and-deprecation)
 - __[Security et al.](#security-et-al)__
+  - [Authentication and Authorization](#authentication-and-authorization)
   - [OAuth 2.0 ROPC](#oauth-20-ropc)
   - [JSON Web Tokens](#json-web-tokens)
+- __[Reliability](#reliability)__
+  - [Idempotency and Retries](#idempotency-and-retries)
+  - [Rate Limiting and Caching](#rate-limiting-and-caching)
 - __[Examples](#examples)__
+  - [Resources and URL Design](examples/resources-and-url-design/README.md)
+  - [Authentication and Authorization](examples/authentication-and-authorization/README.md)
+  - [Request and Response Conventions](examples/request-response-conventions/README.md)
+  - [Errors and Validation](examples/errors-and-validation/README.md)
+  - [Pagination, Filtering and Sorting](examples/pagination-filtering-sorting/README.md)
+  - [Versioning and Deprecation](examples/versioning-and-deprecation/README.md)
+  - [Rate Limiting and Caching](examples/rate-limiting-and-caching/README.md)
+  - [Idempotency and Retries](examples/idempotency-and-retries/README.md)
   - [HTTP Status Codes](examples/http-status-codes/README.md)
   - [HTTP API Design Guide](examples/http-api-design/README.md)
   - [GOV.UK APIs](examples/gov-uk-apis/README.md)
@@ -45,7 +63,45 @@ code | name | description
 503 |	Service Unavailable | -
 504 | Gateway timeout | -
 
+## API Design
+
+### Resources and URL Design
+
+Prefer stable nouns, predictable collections, and explicit nested resources only when the parent changes the meaning of the child.
+
+Code example: [`examples/resources-and-url-design`](examples/resources-and-url-design)
+
+### Request and Response Conventions
+
+Keep payload envelopes, field naming, timestamps, and link/meta shapes consistent so clients can reuse code across endpoints.
+
+Code example: [`examples/request-response-conventions`](examples/request-response-conventions)
+
+### Errors and Validation
+
+Return one error shape everywhere, with a machine-readable code and field-level details when the client can fix the request.
+
+Code example: [`examples/errors-and-validation`](examples/errors-and-validation)
+
+### Pagination, Filtering and Sorting
+
+Choose one query convention and keep it stable across collections, including `page`, filters, sort order, and pagination links.
+
+Code example: [`examples/pagination-filtering-sorting`](examples/pagination-filtering-sorting)
+
+### Versioning and Deprecation
+
+Make the current version obvious, announce deprecations in-band, and publish a clear sunset path before removing clients' integrations.
+
+Code example: [`examples/versioning-and-deprecation`](examples/versioning-and-deprecation)
+
 ## Security et al.
+
+### Authentication and Authorization
+
+Separate who the caller is from what the caller may do, and make `401` vs `403` behavior obvious in the contract.
+
+Code example: [`examples/authentication-and-authorization`](examples/authentication-and-authorization)
 
 ### OAuth 2.0 ROPC
 
@@ -55,10 +111,32 @@ Code example: [`examples/oauth-ropc`](examples/oauth-ropc)
 
 Code example: [`examples/jwt`](examples/jwt)
 
+## Reliability
+
+### Idempotency and Retries
+
+Unsafe writes need a retry story. Use idempotency keys so clients can safely recover from timeouts and network failures.
+
+Code example: [`examples/idempotency-and-retries`](examples/idempotency-and-retries)
+
+### Rate Limiting and Caching
+
+Protect the service with rate limits and help clients back off, then reduce avoidable load with validators and cache headers.
+
+Code example: [`examples/rate-limiting-and-caching`](examples/rate-limiting-and-caching)
+
 ## Examples
 
 All examples are implemented by the shared Rails API-mode app in [`examples/rails-api-mode`](examples/rails-api-mode), targeting Ruby `4.0.1` and Rails `8.1.2` in API-only mode.
 
+- [Resources and URL Design](examples/resources-and-url-design/README.md)
+- [Authentication and Authorization](examples/authentication-and-authorization/README.md)
+- [Request and Response Conventions](examples/request-response-conventions/README.md)
+- [Errors and Validation](examples/errors-and-validation/README.md)
+- [Pagination, Filtering and Sorting](examples/pagination-filtering-sorting/README.md)
+- [Versioning and Deprecation](examples/versioning-and-deprecation/README.md)
+- [Rate Limiting and Caching](examples/rate-limiting-and-caching/README.md)
+- [Idempotency and Retries](examples/idempotency-and-retries/README.md)
 - [HTTP Status Codes](examples/http-status-codes/README.md)
 - [HTTP API Design Guide](examples/http-api-design/README.md)
 - [GOV.UK APIs](examples/gov-uk-apis/README.md)

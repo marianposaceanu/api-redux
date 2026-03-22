@@ -1,0 +1,36 @@
+# Initial request with an idempotency key
+POST /v1/payments/captures HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+PayPal-Request-Id: retry-safe-key
+X-Request-Id: req_701
+
+{
+  "authorization_id": "auth_900",
+  "amount": {
+    "currency_code": "USD",
+    "value": "42.00"
+  }
+}
+
+HTTP/1.1 201 Created
+Location: /v1/payments/captures/cap_901
+Content-Type: application/json
+
+# Reuse with a different payload should fail fast
+POST /v1/payments/captures HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+PayPal-Request-Id: conflict
+X-Request-Id: req_701
+
+{
+  "authorization_id": "auth_900",
+  "amount": {
+    "currency_code": "USD",
+    "value": "99.00"
+  }
+}
+
+HTTP/1.1 409 Conflict
+Content-Type: application/json

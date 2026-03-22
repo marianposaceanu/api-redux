@@ -1,0 +1,17 @@
+# Current version
+GET /v1/appointments?service=passport-renewal HTTP/1.1
+Host: api.example.test
+Accept: application/json
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+# Deprecated version advertises its replacement and sunset
+GET /v0/appointments?service=passport-renewal HTTP/1.1
+Host: api.example.test
+Accept: application/json
+
+HTTP/1.1 200 OK
+Deprecation: true
+Sunset: Wed, 30 Sep 2026 00:00:00 GMT
+Link: </v1/appointments>; rel="successor-version"
