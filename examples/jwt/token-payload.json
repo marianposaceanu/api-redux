@@ -1,0 +1,8 @@
+{
+  "iss": "https://auth.example.test",
+  "sub": "usr_10",
+  "aud": "https://api.example.test",
+  "scope": "orders:read orders:write",
+  "iat": 1774156800,
+  "exp": 1774160400
+}

@@ -42,6 +42,8 @@ Code example: [`examples/oauth-ropc`](examples/oauth-ropc)
 
 ### JSON Web Tokens
 
+Code example: [`examples/jwt`](examples/jwt)
+
 ### Credits
 
 - [HTTP API Design Guide](https://github.com/interagent/http-api-design) - [code](examples/http-api-design)
@@ -53,5 +55,5 @@ Code example: [`examples/oauth-ropc`](examples/oauth-ropc)
 - [Choosing an HTTP Status Code - Stop Making It Hard](http://racksburg.com/choosing-an-http-status-code/) - [code](examples/http-status-codes)
 - [OAuth Bearer Tokens are a Terrible Idea](https://hueniverse.com/2010/09/29/oauth-bearer-tokens-are-a-terrible-idea) - [code](examples/oauth-bearer-tokens)
 - [10 Things You Should Know about Tokens](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies) - [code](examples/tokens-and-cookies)
-- [jwt.io](https://jwt.io)
+- [jwt.io](https://jwt.io) - [code](examples/jwt)
 - [Resource Owner Password Credentials](https://tools.ietf.org/html/rfc6749#section-4.3) - [code](examples/oauth-ropc)
