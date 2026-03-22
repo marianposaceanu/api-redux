@@ -1,0 +1,126 @@
+# Create a widget
+POST /widgets HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+
+{
+  "name": "red-widget",
+  "color": "red"
+}
+
+HTTP/1.1 201 Created
+Location: /widgets/wid_123
+Content-Type: application/json
+
+{
+  "data": {
+    "id": "wid_123",
+    "name": "red-widget",
+    "color": "red",
+    "status": "ready"
+  }
+}
+
+# Fetch an existing widget
+GET /widgets/wid_123 HTTP/1.1
+Host: api.example.test
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "data": {
+    "id": "wid_123",
+    "name": "red-widget",
+    "color": "red",
+    "status": "ready"
+  }
+}
+
+# Missing field
+POST /widgets HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+
+{
+  "color": "red"
+}
+
+HTTP/1.1 422 Unprocessable Entity
+Content-Type: application/json
+
+{
+  "error": {
+    "code": "validation_failed",
+    "message": "One or more attributes are invalid.",
+    "details": [
+      {
+        "field": "name",
+        "message": "is required"
+      }
+    ]
+  }
+}
+
+# Duplicate create
+POST /widgets HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+
+{
+  "name": "red-widget",
+  "color": "red"
+}
+
+HTTP/1.1 409 Conflict
+Content-Type: application/json
+
+{
+  "error": {
+    "code": "duplicate_widget",
+    "message": "A widget with this name already exists."
+  }
+}
+
+# Resource not found
+GET /widgets/wid_missing HTTP/1.1
+Host: api.example.test
+
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+  "error": {
+    "code": "widget_not_found",
+    "message": "Widget wid_missing does not exist."
+  }
+}
+
+# Rate limit applied
+GET /widgets HTTP/1.1
+Host: api.example.test
+
+HTTP/1.1 429 Too Many Requests
+Retry-After: 60
+Content-Type: application/json
+
+{
+  "error": {
+    "code": "rate_limited",
+    "message": "Retry after 60 seconds."
+  }
+}
+
+# Unexpected failure
+GET /widgets/wid_123/export HTTP/1.1
+Host: api.example.test
+
+HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+
+{
+  "error": {
+    "code": "internal_error",
+    "message": "The export job could not be created."
+  }
+}
