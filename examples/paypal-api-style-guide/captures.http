@@ -1,0 +1,34 @@
+# Capture a payment with an idempotency key
+POST /v1/payments/captures HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+PayPal-Request-Id: 4db6b638-0a1d-4b8d-a2b8-e2f5cbb4f220
+X-Request-Id: req_501
+
+{
+  "authorization_id": "auth_900",
+  "amount": {
+    "currency_code": "USD",
+    "value": "42.00"
+  }
+}
+
+HTTP/1.1 201 Created
+Location: /v1/payments/captures/cap_901
+Content-Type: application/json
+
+{
+  "id": "cap_901",
+  "status": "COMPLETED",
+  "amount": {
+    "currency_code": "USD",
+    "value": "42.00"
+  },
+  "links": [
+    {
+      "href": "/v1/payments/captures/cap_901",
+      "rel": "self",
+      "method": "GET"
+    }
+  ]
+}

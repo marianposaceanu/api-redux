@@ -1,0 +1,11 @@
+{
+  "name": "IDEMPOTENCY_CONFLICT",
+  "message": "The request ID has already been used for a different capture payload.",
+  "debug_id": "req_501",
+  "details": [
+    {
+      "field": "PayPal-Request-Id",
+      "issue": "MUST_MATCH_ORIGINAL_REQUEST"
+    }
+  ]
+}
