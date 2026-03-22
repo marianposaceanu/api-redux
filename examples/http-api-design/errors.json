@@ -1,0 +1,13 @@
+{
+  "error": {
+    "code": "invalid_request",
+    "message": "The request payload is malformed.",
+    "request_id": "req_123",
+    "details": [
+      {
+        "field": "data.attributes.currency",
+        "message": "must be a supported ISO 4217 code"
+      }
+    ]
+  }
+}

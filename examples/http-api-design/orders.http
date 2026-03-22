@@ -1,0 +1,83 @@
+# List orders with pagination and filters
+GET /v1/orders?state=paid&page[size]=2&page[after]=ord_102 HTTP/1.1
+Host: api.example.test
+Accept: application/json
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "data": [
+    {
+      "id": "ord_103",
+      "type": "order",
+      "attributes": {
+        "state": "paid",
+        "currency": "USD",
+        "total_cents": 4200
+      },
+      "links": {
+        "self": "/v1/orders/ord_103"
+      }
+    },
+    {
+      "id": "ord_104",
+      "type": "order",
+      "attributes": {
+        "state": "paid",
+        "currency": "USD",
+        "total_cents": 1500
+      },
+      "links": {
+        "self": "/v1/orders/ord_104"
+      }
+    }
+  ],
+  "meta": {
+    "page_size": 2
+  },
+  "links": {
+    "next": "/v1/orders?state=paid&page[size]=2&page[after]=ord_104"
+  }
+}
+
+# Create an order
+POST /v1/orders HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+
+{
+  "data": {
+    "type": "order",
+    "attributes": {
+      "customer_id": "cus_99",
+      "currency": "USD",
+      "line_items": [
+        {
+          "sku": "sku-coffee",
+          "quantity": 2
+        }
+      ]
+    }
+  }
+}
+
+HTTP/1.1 201 Created
+Location: /v1/orders/ord_105
+Content-Type: application/json
+
+{
+  "data": {
+    "id": "ord_105",
+    "type": "order",
+    "attributes": {
+      "state": "pending",
+      "currency": "USD",
+      "total_cents": 2400
+    },
+    "links": {
+      "self": "/v1/orders/ord_105",
+      "cancel": "/v1/orders/ord_105/cancel"
+    }
+  }
+}
