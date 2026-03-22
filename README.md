@@ -38,6 +38,8 @@ code | name | description
 
 ### OAuth 2.0 ROPC
 
+Code example: [`examples/oauth-ropc`](examples/oauth-ropc)
+
 ### JSON Web Tokens
 
 ### Credits
@@ -52,4 +54,4 @@ code | name | description
 - [OAuth Bearer Tokens are a Terrible Idea](https://hueniverse.com/2010/09/29/oauth-bearer-tokens-are-a-terrible-idea) - [code](examples/oauth-bearer-tokens)
 - [10 Things You Should Know about Tokens](https://auth0.com/blog/2014/01/27/ten-things-you-should-know-about-tokens-and-cookies) - [code](examples/tokens-and-cookies)
 - [jwt.io](https://jwt.io)
-- [Resource Owner Password Credentials](https://tools.ietf.org/html/rfc6749#section-4.3)
+- [Resource Owner Password Credentials](https://tools.ietf.org/html/rfc6749#section-4.3) - [code](examples/oauth-ropc)
