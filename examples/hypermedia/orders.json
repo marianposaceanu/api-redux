@@ -1,0 +1,43 @@
+{
+  "class": ["order"],
+  "properties": {
+    "id": "ord_220",
+    "state": "pending",
+    "total_cents": 4200
+  },
+  "entities": [
+    {
+      "rel": ["item"],
+      "properties": {
+        "sku": "sku-coffee",
+        "quantity": 2
+      }
+    }
+  ],
+  "actions": [
+    {
+      "name": "pay",
+      "title": "Pay for this order",
+      "method": "POST",
+      "href": "/orders/ord_220/pay",
+      "type": "application/json"
+    },
+    {
+      "name": "cancel",
+      "title": "Cancel this order",
+      "method": "POST",
+      "href": "/orders/ord_220/cancel",
+      "type": "application/json"
+    }
+  ],
+  "links": [
+    {
+      "rel": ["self"],
+      "href": "/orders/ord_220"
+    },
+    {
+      "rel": ["collection"],
+      "href": "/orders"
+    }
+  ]
+}

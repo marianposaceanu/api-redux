@@ -46,7 +46,7 @@ code | name | description
 - [gov.uk APIs](https://www.gov.uk/service-manual/making-software/apis.html) - [code](examples/gov-uk-apis)
 - [api-style-guide](https://github.com/paypal/api-standards/blob/master/api-style-guide.md) - [code](examples/paypal-api-style-guide)
 - [Layering Api Defenses With Caching](http://sorentwo.com/2015/10/19/layering-api-defenses-with-caching.html) - [code](examples/http-caching)
-- [Learning Client Hypermedia from the Ground Up](http://amundsen.com/talks/2015-06-ndcoslo/index.html)
+- [Learning Client Hypermedia from the Ground Up](http://amundsen.com/talks/2015-06-ndcoslo/index.html) - [code](examples/hypermedia)
 - [A Beginner's Guide to HTTP Cache Headers](http://dev.mobify.com/blog/beginners-guide-to-http-cache-headers/) - [code](examples/http-caching)
 - [Choosing an HTTP Status Code - Stop Making It Hard](http://racksburg.com/choosing-an-http-status-code/) - [code](examples/http-status-codes)
 - [OAuth Bearer Tokens are a Terrible Idea](https://hueniverse.com/2010/09/29/oauth-bearer-tokens-are-a-terrible-idea)
