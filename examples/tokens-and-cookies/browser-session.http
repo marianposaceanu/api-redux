@@ -1,0 +1,20 @@
+# Browser login returns a secure session cookie
+POST /sessions HTTP/1.1
+Host: app.example.test
+Content-Type: application/json
+
+{
+  "email": "pat@example.test",
+  "password": "correct horse battery staple"
+}
+
+HTTP/1.1 201 Created
+Set-Cookie: session=sess_123; Path=/; HttpOnly; Secure; SameSite=Lax
+Content-Type: application/json
+
+{
+  "user": {
+    "id": "usr_10",
+    "email": "pat@example.test"
+  }
+}

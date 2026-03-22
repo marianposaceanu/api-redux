@@ -1,0 +1,16 @@
+# Server exchanges the browser session for a narrow API token
+POST /oauth/token HTTP/1.1
+Host: auth.example.test
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=urn:ietf:params:oauth:grant-type:token-exchange&subject_token=sess_123&scope=reports:read
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "access_token": "at_reports_123",
+  "token_type": "Bearer",
+  "expires_in": 120,
+  "scope": "reports:read"
+}
