@@ -1,0 +1,23 @@
+# Token request that asks for a proof-of-possession access token
+POST /oauth/token HTTP/1.1
+Host: auth.example.test
+Content-Type: application/x-www-form-urlencoded
+DPoP: eyJhbGciOiJFUzI1NiIsImp3ayI6eyJrdHkiOiJFQyJ9fQ.eyJodG0iOiJQT1NUIiwiaHR1IjoiaHR0cHM6Ly9hdXRoLmV4YW1wbGUudGVzdC9vYXV0aC90b2tlbiJ9.signature
+
+grant_type=client_credentials&scope=orders:read
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "access_token": "at_123",
+  "token_type": "DPoP",
+  "expires_in": 300,
+  "scope": "orders:read"
+}
+
+# Resource request must present the same key proof
+GET /v1/orders/ord_220 HTTP/1.1
+Host: api.example.test
+Authorization: DPoP at_123
+DPoP: eyJhbGciOiJFUzI1NiIsImp3ayI6eyJrdHkiOiJFQyJ9fQ.eyJodG0iOiJHRVQiLCJodHUiOiJodHRwczovL2FwaS5leGFtcGxlLnRlc3QvdjEvb3JkZXJzL29yZF8yMjAifQ.signature
