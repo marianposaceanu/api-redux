@@ -5,10 +5,21 @@ Opinionated practices for creating, documenting and managing APIs.
 ### Table of contents
 
 - __[Prerequisites](#prerequisites)__
- - [HTTP Codes](#http-codes)
+  - [HTTP Codes](#http-codes)
 - __[Security et al.](#security-et-al)__
- - [OAuth 2.0 ROPC](#oauth-20-ropc)
- - [JSON Web Tokens](#json-web-tokens)
+  - [OAuth 2.0 ROPC](#oauth-20-ropc)
+  - [JSON Web Tokens](#json-web-tokens)
+- __[Examples](#examples)__
+  - [HTTP Status Codes](examples/http-status-codes/README.md)
+  - [HTTP API Design Guide](examples/http-api-design/README.md)
+  - [GOV.UK APIs](examples/gov-uk-apis/README.md)
+  - [PayPal API Style Guide](examples/paypal-api-style-guide/README.md)
+  - [HTTP Caching](examples/http-caching/README.md)
+  - [Hypermedia](examples/hypermedia/README.md)
+  - [OAuth Bearer Tokens](examples/oauth-bearer-tokens/README.md)
+  - [Tokens and Cookies](examples/tokens-and-cookies/README.md)
+  - [OAuth 2.0 ROPC](examples/oauth-ropc/README.md)
+  - [JSON Web Tokens](examples/jwt/README.md)
 
 ## Prerequisites
 
@@ -43,6 +54,19 @@ Code example: [`examples/oauth-ropc`](examples/oauth-ropc)
 ### JSON Web Tokens
 
 Code example: [`examples/jwt`](examples/jwt)
+
+## Examples
+
+- [HTTP Status Codes](examples/http-status-codes/README.md)
+- [HTTP API Design Guide](examples/http-api-design/README.md)
+- [GOV.UK APIs](examples/gov-uk-apis/README.md)
+- [PayPal API Style Guide](examples/paypal-api-style-guide/README.md)
+- [HTTP Caching](examples/http-caching/README.md)
+- [Hypermedia](examples/hypermedia/README.md)
+- [OAuth Bearer Tokens](examples/oauth-bearer-tokens/README.md)
+- [Tokens and Cookies](examples/tokens-and-cookies/README.md)
+- [OAuth 2.0 ROPC](examples/oauth-ropc/README.md)
+- [JSON Web Tokens](examples/jwt/README.md)
 
 ### Credits
 
