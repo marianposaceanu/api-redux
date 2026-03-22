@@ -17,6 +17,10 @@ bin/rails test
 
 Example implementation map:
 
+- Conditional requests and optimistic concurrency: `app/controllers/v1/articles_controller.rb`, `test/integration/conditional_requests_test.rb`
+- Long-running operations: `app/controllers/v1/exports_controller.rb`, `app/controllers/v1/operations_controller.rb`, `test/integration/long_running_operations_test.rb`
+- Webhook signatures and replay protection: `app/controllers/v1/webhooks/payments_controller.rb`, `test/integration/webhook_signatures_test.rb`
+- Sparse fieldsets and partial responses: `app/controllers/v1/invoices_controller.rb`, `test/integration/sparse_fieldsets_test.rb`
 - Resources and URL design: `app/controllers/v1/books_controller.rb`, `test/integration/resources_url_design_test.rb`
 - Authentication and authorization: `app/controllers/v1/reports_controller.rb`, `test/integration/authentication_authorization_test.rb`
 - Request and response conventions: `app/controllers/v1/profile_controller.rb`, `test/integration/request_response_conventions_test.rb`

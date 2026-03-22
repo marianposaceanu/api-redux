@@ -1,0 +1,25 @@
+# Invalid signature is rejected
+POST /v1/webhooks/payments HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+X-Signature: sha256=bad-signature
+X-Webhook-Id: evt_123
+
+{
+  "event": "payment.captured"
+}
+
+HTTP/1.1 401 Unauthorized
+
+# Replayed webhook IDs are rejected even with a valid signature
+POST /v1/webhooks/payments HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+X-Signature: sha256=valid-signature
+X-Webhook-Id: evt_replayed
+
+{
+  "event": "payment.captured"
+}
+
+HTTP/1.1 409 Conflict

@@ -19,7 +19,16 @@ Opinionated practices for creating, documenting and managing APIs.
 - __[Reliability](#reliability)__
   - [Idempotency and Retries](#idempotency-and-retries)
   - [Rate Limiting and Caching](#rate-limiting-and-caching)
+- __[Advanced Topics](#advanced-topics)__
+  - [Conditional Requests and Optimistic Concurrency](#conditional-requests-and-optimistic-concurrency)
+  - [Long-Running Operations](#long-running-operations)
+  - [Webhook Signatures and Replay Protection](#webhook-signatures-and-replay-protection)
+  - [Sparse Fieldsets and Partial Responses](#sparse-fieldsets-and-partial-responses)
 - __[Examples](#examples)__
+  - [Conditional Requests and Optimistic Concurrency](examples/conditional-requests/README.md)
+  - [Long-Running Operations](examples/long-running-operations/README.md)
+  - [Webhook Signatures and Replay Protection](examples/webhook-signatures/README.md)
+  - [Sparse Fieldsets and Partial Responses](examples/sparse-fieldsets/README.md)
   - [Resources and URL Design](examples/resources-and-url-design/README.md)
   - [Authentication and Authorization](examples/authentication-and-authorization/README.md)
   - [Request and Response Conventions](examples/request-response-conventions/README.md)
@@ -125,10 +134,40 @@ Protect the service with rate limits and help clients back off, then reduce avoi
 
 Code example: [`examples/rate-limiting-and-caching`](examples/rate-limiting-and-caching)
 
+## Advanced Topics
+
+### Conditional Requests and Optimistic Concurrency
+
+When multiple clients can edit the same resource, use validators like `ETag` and preconditions like `If-Match` to prevent silent overwrites.
+
+Code example: [`examples/conditional-requests`](examples/conditional-requests)
+
+### Long-Running Operations
+
+Not every write finishes in one request. Use `202 Accepted`, an operation resource, and polling links when work continues asynchronously.
+
+Code example: [`examples/long-running-operations`](examples/long-running-operations)
+
+### Webhook Signatures and Replay Protection
+
+Inbound webhooks need authenticity checks and replay defenses, not just a public endpoint that trusts whoever POSTs first.
+
+Code example: [`examples/webhook-signatures`](examples/webhook-signatures)
+
+### Sparse Fieldsets and Partial Responses
+
+When responses are large, let clients ask for just the fields they need so bandwidth and parsing costs stay predictable.
+
+Code example: [`examples/sparse-fieldsets`](examples/sparse-fieldsets)
+
 ## Examples
 
 All examples are implemented by the shared Rails API-mode app in [`examples/rails-api-mode`](examples/rails-api-mode), targeting Ruby `4.0.1` and Rails `8.1.2` in API-only mode.
 
+- [Conditional Requests and Optimistic Concurrency](examples/conditional-requests/README.md)
+- [Long-Running Operations](examples/long-running-operations/README.md)
+- [Webhook Signatures and Replay Protection](examples/webhook-signatures/README.md)
+- [Sparse Fieldsets and Partial Responses](examples/sparse-fieldsets/README.md)
 - [Resources and URL Design](examples/resources-and-url-design/README.md)
 - [Authentication and Authorization](examples/authentication-and-authorization/README.md)
 - [Request and Response Conventions](examples/request-response-conventions/README.md)

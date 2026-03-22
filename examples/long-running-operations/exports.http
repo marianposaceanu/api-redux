@@ -1,0 +1,24 @@
+# Start an asynchronous export job
+POST /v1/exports HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+
+{
+  "report_type": "finance-summary"
+}
+
+HTTP/1.1 202 Accepted
+Location: /v1/operations/op_export_123
+Retry-After: 10
+Content-Type: application/json
+
+# Poll the operation resource until it completes
+GET /v1/operations/op_export_123 HTTP/1.1
+Host: api.example.test
+
+HTTP/1.1 200 OK
+
+GET /v1/operations/op_export_123?simulate=done HTTP/1.1
+Host: api.example.test
+
+HTTP/1.1 200 OK

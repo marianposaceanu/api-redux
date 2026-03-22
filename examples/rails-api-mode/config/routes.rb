@@ -20,11 +20,15 @@ Rails.application.routes.draw do
 
   namespace :v1 do
     resources :appointments, only: :index
+    resources :articles, only: %i[show update]
     resources :customers, only: :index
     resources :catalog, only: :index
+    resources :exports, only: :create
+    resources :invoices, only: :show
     resources :libraries, only: [] do
       resources :books, only: %i[index show]
     end
+    resources :operations, only: :show
     resources :orders, only: %i[index create show]
     resources :registrations, only: :create
     resource :profile, only: %i[show update], controller: :profile
@@ -37,6 +41,10 @@ Rails.application.routes.draw do
 
     namespace :payments do
       resources :captures, only: :create
+    end
+
+    namespace :webhooks do
+      resources :payments, only: :create
     end
   end
 end
