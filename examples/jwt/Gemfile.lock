@@ -1,28 +1,40 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    json (2.6.3)
+    base64 (0.3.0)
+    json (2.19.2)
     json_web_token (0.3.5)
       json (~> 2.1)
-    mustermann (3.0.0)
+    logger (1.7.0)
+    mustermann (3.0.4)
       ruby2_keywords (~> 0.0.1)
-    rack (2.2.7)
-    rack-protection (3.0.6)
-      rack
+    rack (3.2.5)
+    rack-protection (4.2.1)
+      base64 (>= 0.1.0)
+      logger (>= 1.6.0)
+      rack (>= 3.0.0, < 4)
+    rack-session (2.1.1)
+      base64 (>= 0.1.0)
+      rack (>= 3.0.0)
     ruby2_keywords (0.0.5)
-    sinatra (3.0.6)
+    sinatra (4.2.1)
+      logger (>= 1.6.0)
       mustermann (~> 3.0)
-      rack (~> 2.2, >= 2.2.4)
-      rack-protection (= 3.0.6)
+      rack (>= 3.0.0, < 4)
+      rack-protection (= 4.2.1)
+      rack-session (>= 2.0.0, < 3)
       tilt (~> 2.0)
-    tilt (2.1.0)
+    tilt (2.7.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   json_web_token
-  sinatra
+  sinatra (>= 4.2.0)
+
+RUBY VERSION
+   ruby 3.4.2p28
 
 BUNDLED WITH
-   2.3.15
+   2.6.2
