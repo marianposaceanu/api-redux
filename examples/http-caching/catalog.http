@@ -1,0 +1,29 @@
+# Product catalog with strong cache validators
+GET /v1/catalog?page[size]=20 HTTP/1.1
+Host: api.example.test
+Accept: application/json
+
+HTTP/1.1 200 OK
+Cache-Control: public, max-age=60, stale-while-revalidate=30
+ETag: "catalog-v14"
+Vary: Accept-Encoding
+Content-Type: application/json
+
+{
+  "data": [
+    {
+      "id": "sku-coffee",
+      "name": "Coffee Beans",
+      "price_cents": 1200
+    }
+  ]
+}
+
+# Revalidation returns no body when the catalog is unchanged
+GET /v1/catalog?page[size]=20 HTTP/1.1
+Host: api.example.test
+If-None-Match: "catalog-v14"
+
+HTTP/1.1 304 Not Modified
+Cache-Control: public, max-age=60, stale-while-revalidate=30
+ETag: "catalog-v14"
