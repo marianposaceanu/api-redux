@@ -1,6 +1,8 @@
 # Hypermedia Example
 
-This example uses links and forms so the client discovers the next valid action from the payload.
+This example is implemented by the shared Rails API app in `../rails-api-mode`.
 
-- `orders.json` returns a small state machine for an order.
-- `collection.json` shows entry-point navigation for a client that starts at the API root.
+- Hypermedia fixture: [`orders.json`](orders.json)
+- Entry-point fixture: [`collection.json`](collection.json)
+- Rails controllers: [`../rails-api-mode/app/controllers/root_controller.rb`](../rails-api-mode/app/controllers/root_controller.rb), [`../rails-api-mode/app/controllers/orders_controller.rb`](../rails-api-mode/app/controllers/orders_controller.rb)
+- Minitest coverage: [`../rails-api-mode/test/integration/hypermedia_test.rb`](../rails-api-mode/test/integration/hypermedia_test.rb)

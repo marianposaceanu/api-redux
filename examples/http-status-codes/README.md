@@ -1,6 +1,7 @@
 # HTTP Status Codes Example
 
-This example shows one resource moving through common API states.
+This example is implemented by the shared Rails API app in `../rails-api-mode`.
 
-- `widgets.http` covers create, fetch, validate, conflict, rate limit, and server failure cases.
-- The response bodies use a stable `error` envelope so clients can branch on codes and machine-readable details.
+- Request fixture: [`widgets.http`](widgets.http)
+- Rails controller: [`../rails-api-mode/app/controllers/widgets_controller.rb`](../rails-api-mode/app/controllers/widgets_controller.rb)
+- Minitest coverage: [`../rails-api-mode/test/integration/http_status_codes_flow_test.rb`](../rails-api-mode/test/integration/http_status_codes_flow_test.rb)

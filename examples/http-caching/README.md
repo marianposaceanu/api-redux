@@ -1,6 +1,8 @@
 # HTTP Caching Example
 
-This example combines cache headers with layered defenses.
+This example is implemented by the shared Rails API app in `../rails-api-mode`.
 
-- `catalog.http` shows public caching for read-heavy endpoints.
-- `edge-rules.vcl` sketches how an edge cache strips unsafe query noise before the origin sees it.
+- Request fixture: [`catalog.http`](catalog.http)
+- Edge sketch: [`edge-rules.vcl`](edge-rules.vcl)
+- Rails controller: [`../rails-api-mode/app/controllers/v1/catalog_controller.rb`](../rails-api-mode/app/controllers/v1/catalog_controller.rb)
+- Minitest coverage: [`../rails-api-mode/test/integration/http_caching_test.rb`](../rails-api-mode/test/integration/http_caching_test.rb)

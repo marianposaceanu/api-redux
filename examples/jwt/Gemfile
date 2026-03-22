@@ -1,6 +1,0 @@
-source 'https://rubygems.org'
-
-ruby '3.4.2'
-
-gem 'sinatra', '>= 4.2.0'
-gem 'json_web_token'

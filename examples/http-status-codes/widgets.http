@@ -63,7 +63,7 @@ Content-Type: application/json
 }
 
 # Duplicate create
-POST /widgets HTTP/1.1
+POST /widgets?simulate=duplicate HTTP/1.1
 Host: api.example.test
 Content-Type: application/json
 
@@ -97,7 +97,7 @@ Content-Type: application/json
 }
 
 # Rate limit applied
-GET /widgets HTTP/1.1
+GET /widgets?simulate=rate_limit HTTP/1.1
 Host: api.example.test
 
 HTTP/1.1 429 Too Many Requests

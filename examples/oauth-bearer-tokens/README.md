@@ -1,6 +1,8 @@
 # OAuth Bearer Token Example
 
-This example highlights why a plain bearer token is easy to replay and how proof-of-possession narrows that risk.
+This example is implemented by the shared Rails API app in `../rails-api-mode`.
 
-- `dpop.http` shows a token request and a follow-up API call bound to a DPoP proof.
-- `threat-model.md` lists the failure mode that a leaked bearer token introduces.
+- Request fixture: [`dpop.http`](dpop.http)
+- Threat notes: [`threat-model.md`](threat-model.md)
+- Rails controllers: [`../rails-api-mode/app/controllers/oauth/tokens_controller.rb`](../rails-api-mode/app/controllers/oauth/tokens_controller.rb), [`../rails-api-mode/app/controllers/v1/orders_controller.rb`](../rails-api-mode/app/controllers/v1/orders_controller.rb)
+- Minitest coverage: [`../rails-api-mode/test/integration/oauth_bearer_tokens_test.rb`](../rails-api-mode/test/integration/oauth_bearer_tokens_test.rb)

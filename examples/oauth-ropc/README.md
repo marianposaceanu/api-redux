@@ -1,6 +1,8 @@
 # OAuth 2.0 ROPC Example
 
-This example documents the Resource Owner Password Credentials flow and its trade-offs.
+This example is implemented by the shared Rails API app in `../rails-api-mode`.
 
-- `token.http` shows the direct username/password exchange.
-- `migration-notes.md` captures the safer replacement path toward authorization code plus PKCE.
+- Request fixture: [`token.http`](token.http)
+- Migration notes: [`migration-notes.md`](migration-notes.md)
+- Rails controller: [`../rails-api-mode/app/controllers/oauth/tokens_controller.rb`](../rails-api-mode/app/controllers/oauth/tokens_controller.rb)
+- Minitest coverage: [`../rails-api-mode/test/integration/oauth_ropc_test.rb`](../rails-api-mode/test/integration/oauth_ropc_test.rb)

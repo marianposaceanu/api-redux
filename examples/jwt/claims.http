@@ -1,0 +1,16 @@
+# Fetch the decoded JWT claims exposed by the Rails API example
+GET /v1/jwt/claims HTTP/1.1
+Host: api.example.test
+Accept: application/json
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "iss": "https://auth.example.test",
+  "sub": "usr_10",
+  "aud": "https://api.example.test",
+  "scope": "orders:read orders:write",
+  "iat": 1774156800,
+  "exp": 1774160400
+}

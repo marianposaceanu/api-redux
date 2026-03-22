@@ -1,6 +1,8 @@
 # HTTP API Design Guide Example
 
-This example turns the design guide into a small order API.
+This example is implemented by the shared Rails API app in `../rails-api-mode`.
 
-- `orders.http` demonstrates resource naming, versioning, pagination, and consistent JSON envelopes.
-- `errors.json` shows the shared error shape returned across endpoints.
+- Request fixture: [`orders.http`](orders.http)
+- Error fixture: [`errors.json`](errors.json)
+- Rails controller: [`../rails-api-mode/app/controllers/v1/orders_controller.rb`](../rails-api-mode/app/controllers/v1/orders_controller.rb)
+- Minitest coverage: [`../rails-api-mode/test/integration/http_api_design_test.rb`](../rails-api-mode/test/integration/http_api_design_test.rb)

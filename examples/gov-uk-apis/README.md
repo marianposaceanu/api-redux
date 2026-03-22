@@ -1,6 +1,7 @@
 # GOV.UK API Example
 
-This example mirrors a public-service API with clear URLs and simple filtering.
+This example is implemented by the shared Rails API app in `../rails-api-mode`.
 
-- `appointments.http` shows collection filtering, sparse payloads, and explicit deprecation headers.
-- The responses prefer plain fields over framework-specific wrappers so integrators can read them quickly.
+- Request fixture: [`appointments.http`](appointments.http)
+- Rails controllers: [`../rails-api-mode/app/controllers/v1/appointments_controller.rb`](../rails-api-mode/app/controllers/v1/appointments_controller.rb), [`../rails-api-mode/app/controllers/v0/appointments_controller.rb`](../rails-api-mode/app/controllers/v0/appointments_controller.rb)
+- Minitest coverage: [`../rails-api-mode/test/integration/gov_uk_apis_test.rb`](../rails-api-mode/test/integration/gov_uk_apis_test.rb)

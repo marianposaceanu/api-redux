@@ -57,6 +57,8 @@ Code example: [`examples/jwt`](examples/jwt)
 
 ## Examples
 
+All examples are implemented by the shared Rails API-mode app in [`examples/rails-api-mode`](examples/rails-api-mode), targeting Ruby `4.0.1` and Rails `8.1.2` in API-only mode.
+
 - [HTTP Status Codes](examples/http-status-codes/README.md)
 - [HTTP API Design Guide](examples/http-api-design/README.md)
 - [GOV.UK APIs](examples/gov-uk-apis/README.md)

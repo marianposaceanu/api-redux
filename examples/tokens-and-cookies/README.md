@@ -1,6 +1,8 @@
 # Tokens and Cookies Example
 
-This example compares a browser session cookie with an API access token.
+This example is implemented by the shared Rails API app in `../rails-api-mode`.
 
-- `browser-session.http` keeps the token off the frontend by issuing an `HttpOnly` cookie.
-- `api-token.http` shows the same user calling a partner API with a short-lived token.
+- Browser fixture: [`browser-session.http`](browser-session.http)
+- Token fixture: [`api-token.http`](api-token.http)
+- Rails controllers: [`../rails-api-mode/app/controllers/sessions_controller.rb`](../rails-api-mode/app/controllers/sessions_controller.rb), [`../rails-api-mode/app/controllers/oauth/tokens_controller.rb`](../rails-api-mode/app/controllers/oauth/tokens_controller.rb)
+- Minitest coverage: [`../rails-api-mode/test/integration/tokens_and_cookies_test.rb`](../rails-api-mode/test/integration/tokens_and_cookies_test.rb)
