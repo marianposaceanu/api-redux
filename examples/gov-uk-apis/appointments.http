@@ -1,0 +1,46 @@
+# Find appointment slots for a service and postcode
+GET /v1/appointments?service=passport-renewal&postcode=SW1A1AA&from=2026-03-24 HTTP/1.1
+Host: api.example.test
+Accept: application/json
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "appointments": [
+    {
+      "id": "apt_301",
+      "service": "passport-renewal",
+      "location": "Victoria Centre",
+      "starts_at": "2026-03-24T10:00:00Z",
+      "duration_minutes": 20
+    },
+    {
+      "id": "apt_302",
+      "service": "passport-renewal",
+      "location": "Westminster Hub",
+      "starts_at": "2026-03-24T11:30:00Z",
+      "duration_minutes": 20
+    }
+  ],
+  "total": 2,
+  "links": {
+    "documentation": "https://developer.example.test/appointments"
+  }
+}
+
+# A version that will be removed soon advertises the replacement
+GET /v0/appointments?service=passport-renewal HTTP/1.1
+Host: api.example.test
+Accept: application/json
+
+HTTP/1.1 200 OK
+Deprecation: true
+Sunset: Wed, 30 Sep 2026 00:00:00 GMT
+Link: </v1/appointments>; rel="successor-version"
+Content-Type: application/json
+
+{
+  "appointments": [],
+  "total": 0
+}

@@ -43,7 +43,7 @@ code | name | description
 ### Credits
 
 - [HTTP API Design Guide](https://github.com/interagent/http-api-design) - [code](examples/http-api-design)
-- [gov.uk APIs](https://www.gov.uk/service-manual/making-software/apis.html)
+- [gov.uk APIs](https://www.gov.uk/service-manual/making-software/apis.html) - [code](examples/gov-uk-apis)
 - [api-style-guide](https://github.com/paypal/api-standards/blob/master/api-style-guide.md)
 - [Layering Api Defenses With Caching](http://sorentwo.com/2015/10/19/layering-api-defenses-with-caching.html)
 - [Learning Client Hypermedia from the Ground Up](http://amundsen.com/talks/2015-06-ndcoslo/index.html)
