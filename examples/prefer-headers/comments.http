@@ -1,0 +1,26 @@
+# Default create returns the new comment representation
+POST /v1/comments HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+
+{
+  "body": "Great API docs."
+}
+
+HTTP/1.1 201 Created
+Location: /v1/comments/cmt_123
+Content-Type: application/json
+
+# Prefer can ask for a minimal response
+POST /v1/comments HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+Prefer: return=minimal
+
+{
+  "body": "Great API docs."
+}
+
+HTTP/1.1 201 Created
+Location: /v1/comments/cmt_123
+Preference-Applied: return=minimal

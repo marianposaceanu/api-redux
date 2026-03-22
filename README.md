@@ -20,11 +20,19 @@ Opinionated practices for creating, documenting and managing APIs.
   - [Idempotency and Retries](#idempotency-and-retries)
   - [Rate Limiting and Caching](#rate-limiting-and-caching)
 - __[Advanced Topics](#advanced-topics)__
+  - [Content Negotiation and Profiles](#content-negotiation-and-profiles)
+  - [Bulk Operations and Partial Failure](#bulk-operations-and-partial-failure)
+  - [Prefer Headers and Minimal Responses](#prefer-headers-and-minimal-responses)
+  - [Trace Propagation and Correlation IDs](#trace-propagation-and-correlation-ids)
   - [Conditional Requests and Optimistic Concurrency](#conditional-requests-and-optimistic-concurrency)
   - [Long-Running Operations](#long-running-operations)
   - [Webhook Signatures and Replay Protection](#webhook-signatures-and-replay-protection)
   - [Sparse Fieldsets and Partial Responses](#sparse-fieldsets-and-partial-responses)
 - __[Examples](#examples)__
+  - [Content Negotiation and Profiles](examples/content-negotiation/README.md)
+  - [Bulk Operations and Partial Failure](examples/bulk-operations/README.md)
+  - [Prefer Headers and Minimal Responses](examples/prefer-headers/README.md)
+  - [Trace Propagation and Correlation IDs](examples/trace-propagation/README.md)
   - [Conditional Requests and Optimistic Concurrency](examples/conditional-requests/README.md)
   - [Long-Running Operations](examples/long-running-operations/README.md)
   - [Webhook Signatures and Replay Protection](examples/webhook-signatures/README.md)
@@ -136,6 +144,30 @@ Code example: [`examples/rate-limiting-and-caching`](examples/rate-limiting-and-
 
 ## Advanced Topics
 
+### Content Negotiation and Profiles
+
+Sometimes one resource needs more than one stable representation. Negotiate that explicitly with media types and profiles instead of inventing ad hoc query flags.
+
+Code example: [`examples/content-negotiation`](examples/content-negotiation)
+
+### Bulk Operations and Partial Failure
+
+Bulk endpoints should report per-item outcomes clearly. A batch that partly succeeds still needs a contract clients can safely reconcile.
+
+Code example: [`examples/bulk-operations`](examples/bulk-operations)
+
+### Prefer Headers and Minimal Responses
+
+Clients do not always need the full representation back. `Prefer` headers let them trade response size for fewer follow-up reads in a standard way.
+
+Code example: [`examples/prefer-headers`](examples/prefer-headers)
+
+### Trace Propagation and Correlation IDs
+
+Distributed systems debugging gets painful fast without stable request identifiers. Propagate trace context and correlation IDs across every hop.
+
+Code example: [`examples/trace-propagation`](examples/trace-propagation)
+
 ### Conditional Requests and Optimistic Concurrency
 
 When multiple clients can edit the same resource, use validators like `ETag` and preconditions like `If-Match` to prevent silent overwrites.
@@ -164,6 +196,10 @@ Code example: [`examples/sparse-fieldsets`](examples/sparse-fieldsets)
 
 All examples are implemented by the shared Rails API-mode app in [`examples/rails-api-mode`](examples/rails-api-mode), targeting Ruby `4.0.1` and Rails `8.1.2` in API-only mode.
 
+- [Content Negotiation and Profiles](examples/content-negotiation/README.md)
+- [Bulk Operations and Partial Failure](examples/bulk-operations/README.md)
+- [Prefer Headers and Minimal Responses](examples/prefer-headers/README.md)
+- [Trace Propagation and Correlation IDs](examples/trace-propagation/README.md)
 - [Conditional Requests and Optimistic Concurrency](examples/conditional-requests/README.md)
 - [Long-Running Operations](examples/long-running-operations/README.md)
 - [Webhook Signatures and Replay Protection](examples/webhook-signatures/README.md)

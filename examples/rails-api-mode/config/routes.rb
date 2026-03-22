@@ -21,8 +21,10 @@ Rails.application.routes.draw do
   namespace :v1 do
     resources :appointments, only: :index
     resources :articles, only: %i[show update]
+    resources :comments, only: :create
     resources :customers, only: :index
     resources :catalog, only: :index
+    resources :diagnostics, only: :show
     resources :exports, only: :create
     resources :invoices, only: :show
     resources :libraries, only: [] do
@@ -30,10 +32,15 @@ Rails.application.routes.draw do
     end
     resources :operations, only: :show
     resources :orders, only: %i[index create show]
+    resources :products, only: :show
     resources :registrations, only: :create
     resource :profile, only: %i[show update], controller: :profile
 
     get "reports/finance", to: "reports#show"
+
+    namespace :bulk do
+      resources :customer_archives, only: :create
+    end
 
     namespace :jwt do
       get :claims, to: "claims#show"

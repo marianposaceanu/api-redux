@@ -1,0 +1,22 @@
+# Default representation
+GET /v1/products/prod_123 HTTP/1.1
+Host: api.example.test
+Accept: application/vnd.api+json
+
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json
+
+# Compact profile negotiated via Accept
+GET /v1/products/prod_123 HTTP/1.1
+Host: api.example.test
+Accept: application/vnd.api+json; profile="https://api.example.test/profiles/product-compact"
+
+HTTP/1.1 200 OK
+Content-Type: application/vnd.api+json; profile="https://api.example.test/profiles/product-compact"
+
+# Unsupported media types are rejected
+GET /v1/products/prod_123 HTTP/1.1
+Host: api.example.test
+Accept: application/xml
+
+HTTP/1.1 406 Not Acceptable

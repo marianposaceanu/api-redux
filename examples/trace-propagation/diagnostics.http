@@ -1,0 +1,10 @@
+# Propagate tracing headers through the API edge
+GET /v1/diagnostics/diag_123 HTTP/1.1
+Host: api.example.test
+X-Correlation-Id: corr_abc123
+Traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-00
+Baggage: tenant=blue,region=eu
+
+HTTP/1.1 200 OK
+X-Correlation-Id: corr_abc123
+Content-Type: application/json

@@ -17,6 +17,10 @@ bin/rails test
 
 Example implementation map:
 
+- Content negotiation and profiles: `app/controllers/v1/products_controller.rb`, `test/integration/content_negotiation_test.rb`
+- Bulk operations and partial failure: `app/controllers/v1/bulk/customer_archives_controller.rb`, `test/integration/bulk_operations_test.rb`
+- Prefer headers and minimal responses: `app/controllers/v1/comments_controller.rb`, `test/integration/prefer_headers_test.rb`
+- Trace propagation and correlation IDs: `app/controllers/v1/diagnostics_controller.rb`, `test/integration/trace_propagation_test.rb`
 - Conditional requests and optimistic concurrency: `app/controllers/v1/articles_controller.rb`, `test/integration/conditional_requests_test.rb`
 - Long-running operations: `app/controllers/v1/exports_controller.rb`, `app/controllers/v1/operations_controller.rb`, `test/integration/long_running_operations_test.rb`
 - Webhook signatures and replay protection: `app/controllers/v1/webhooks/payments_controller.rb`, `test/integration/webhook_signatures_test.rb`
