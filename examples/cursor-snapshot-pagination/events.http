@@ -1,0 +1,18 @@
+# First page returns a snapshot token and next cursor
+GET /v1/events HTTP/1.1
+Host: api.example.test
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+# Follow-up request must include the original snapshot
+GET /v1/events?cursor=evt_102&snapshot=snap_20260325_a HTTP/1.1
+Host: api.example.test
+
+HTTP/1.1 200 OK
+
+# Expired cursors force a restart from the collection root
+GET /v1/events?cursor=expired_cursor&snapshot=snap_20260325_a HTTP/1.1
+Host: api.example.test
+
+HTTP/1.1 410 Gone

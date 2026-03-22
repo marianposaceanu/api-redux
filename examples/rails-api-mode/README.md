@@ -17,6 +17,10 @@ bin/rails test
 
 Example implementation map:
 
+- Quota policy and reset semantics: `app/controllers/v1/searches_controller.rb`, `test/integration/quota_policy_test.rb`
+- Cursor invalidation and snapshot pagination: `app/controllers/v1/events_controller.rb`, `test/integration/cursor_snapshot_pagination_test.rb`
+- Webhook ordering and deduplication windows: `app/controllers/v1/webhooks/shipments_controller.rb`, `test/integration/webhook_ordering_test.rb`
+- Schema evolution and unknown field tolerance: `app/controllers/v1/devices_controller.rb`, `test/integration/schema_evolution_test.rb`
 - Content negotiation and profiles: `app/controllers/v1/products_controller.rb`, `test/integration/content_negotiation_test.rb`
 - Bulk operations and partial failure: `app/controllers/v1/bulk/customer_archives_controller.rb`, `test/integration/bulk_operations_test.rb`
 - Prefer headers and minimal responses: `app/controllers/v1/comments_controller.rb`, `test/integration/prefer_headers_test.rb`

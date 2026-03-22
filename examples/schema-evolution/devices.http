@@ -1,0 +1,23 @@
+# Unknown request fields are ignored rather than rejected
+POST /v1/devices HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+
+{
+  "serial_number": "sn_123",
+  "experimental_hint": "future-client-field"
+}
+
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+# The server may add new response fields like firmware_channel over time
+POST /v1/devices HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+
+{
+  "serial_number": "sn_456"
+}
+
+HTTP/1.1 201 Created

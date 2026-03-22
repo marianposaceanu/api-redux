@@ -1,0 +1,18 @@
+# Successful request returns quota headers
+GET /v1/searches?q=api+design HTTP/1.1
+Host: api.example.test
+
+HTTP/1.1 200 OK
+RateLimit-Limit: 50
+RateLimit-Remaining: 37
+RateLimit-Reset: 60
+RateLimit-Policy: 50;w=60
+
+# Exhausted quota explains when the window resets
+GET /v1/searches?simulate=exhausted HTTP/1.1
+Host: api.example.test
+
+HTTP/1.1 429 Too Many Requests
+RateLimit-Limit: 50
+RateLimit-Remaining: 0
+RateLimit-Reset: 60

@@ -1,0 +1,38 @@
+# In-order events are ready for immediate processing
+POST /v1/webhooks/shipments HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+X-Webhook-Id: evt_901
+X-Event-Sequence: 42
+
+{
+  "event": "shipment.updated"
+}
+
+HTTP/1.1 202 Accepted
+
+# Out-of-order events can be deferred until the missing sequence arrives
+POST /v1/webhooks/shipments HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+X-Webhook-Id: evt_902
+X-Event-Sequence: 44
+
+{
+  "event": "shipment.updated"
+}
+
+HTTP/1.1 202 Accepted
+
+# Replays inside the dedupe window are rejected
+POST /v1/webhooks/shipments HTTP/1.1
+Host: api.example.test
+Content-Type: application/json
+X-Webhook-Id: evt_replayed
+X-Event-Sequence: 42
+
+{
+  "event": "shipment.updated"
+}
+
+HTTP/1.1 409 Conflict

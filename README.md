@@ -28,7 +28,19 @@ Opinionated practices for creating, documenting and managing APIs.
   - [Long-Running Operations](#long-running-operations)
   - [Webhook Signatures and Replay Protection](#webhook-signatures-and-replay-protection)
   - [Sparse Fieldsets and Partial Responses](#sparse-fieldsets-and-partial-responses)
+- __[Niche Topics](#niche-topics)__
+  - [Quota Policy and Reset Semantics](#quota-policy-and-reset-semantics)
+  - [Idempotency Key Lifetime](#idempotency-key-lifetime)
+  - [Cursor Invalidation and Snapshot Pagination](#cursor-invalidation-and-snapshot-pagination)
+  - [Webhook Ordering and Deduplication Windows](#webhook-ordering-and-deduplication-windows)
+  - [Schema Evolution and Unknown Field Tolerance](#schema-evolution-and-unknown-field-tolerance)
+  - [Soft Deletes, Tombstones and Purge Windows](#soft-deletes-tombstones-and-purge-windows)
+  - [Range Requests and Resumable Downloads](#range-requests-and-resumable-downloads)
 - __[Examples](#examples)__
+  - [Quota Policy and Reset Semantics](examples/quota-policy/README.md)
+  - [Cursor Invalidation and Snapshot Pagination](examples/cursor-snapshot-pagination/README.md)
+  - [Webhook Ordering and Deduplication Windows](examples/webhook-ordering/README.md)
+  - [Schema Evolution and Unknown Field Tolerance](examples/schema-evolution/README.md)
   - [Content Negotiation and Profiles](examples/content-negotiation/README.md)
   - [Bulk Operations and Partial Failure](examples/bulk-operations/README.md)
   - [Prefer Headers and Minimal Responses](examples/prefer-headers/README.md)
@@ -192,10 +204,54 @@ When responses are large, let clients ask for just the fields they need so bandw
 
 Code example: [`examples/sparse-fieldsets`](examples/sparse-fieldsets)
 
+## Niche Topics
+
+These topics go beyond the common API contract surface, but they matter once a platform has real clients, retries, and long-lived integrations.
+
+### Quota Policy and Reset Semantics
+
+Basic `429` handling is only the start. Mature APIs often need consistent `RateLimit-*` or equivalent headers so clients can reason about bursts, remaining quota, and reset timing.
+
+Code example: [`examples/quota-policy`](examples/quota-policy)
+
+### Idempotency Key Lifetime
+
+Once you support idempotency keys, clients need to know how long the server remembers them, whether bodies must match exactly, and what happens after the deduplication window expires.
+
+### Cursor Invalidation and Snapshot Pagination
+
+Cursor pagination gets tricky when the underlying dataset changes between requests. APIs should define whether cursors represent a moving window or a stable snapshot.
+
+Code example: [`examples/cursor-snapshot-pagination`](examples/cursor-snapshot-pagination)
+
+### Webhook Ordering and Deduplication Windows
+
+Authentic webhooks can still arrive late, out of order, or more than once. Document ordering guarantees, event replay windows, and how long event IDs remain deduplicated.
+
+Code example: [`examples/webhook-ordering`](examples/webhook-ordering)
+
+### Schema Evolution and Unknown Field Tolerance
+
+Long-lived integrations survive when clients ignore unknown fields and servers add new fields safely. This deserves an explicit compatibility policy.
+
+Code example: [`examples/schema-evolution`](examples/schema-evolution)
+
+### Soft Deletes, Tombstones and Purge Windows
+
+Deletion semantics matter in distributed systems. A resource may disappear immediately, return a tombstone for a while, or remain recoverable until a later purge deadline.
+
+### Range Requests and Resumable Downloads
+
+Large exports and media endpoints often benefit from `Range` support, resumable transfers, and byte-range validation rules that do not fit every API but matter a lot when they do.
+
 ## Examples
 
 All examples are implemented by the shared Rails API-mode app in [`examples/rails-api-mode`](examples/rails-api-mode), targeting Ruby `4.0.1` and Rails `8.1.2` in API-only mode.
 
+- [Quota Policy and Reset Semantics](examples/quota-policy/README.md)
+- [Cursor Invalidation and Snapshot Pagination](examples/cursor-snapshot-pagination/README.md)
+- [Webhook Ordering and Deduplication Windows](examples/webhook-ordering/README.md)
+- [Schema Evolution and Unknown Field Tolerance](examples/schema-evolution/README.md)
 - [Content Negotiation and Profiles](examples/content-negotiation/README.md)
 - [Bulk Operations and Partial Failure](examples/bulk-operations/README.md)
 - [Prefer Headers and Minimal Responses](examples/prefer-headers/README.md)

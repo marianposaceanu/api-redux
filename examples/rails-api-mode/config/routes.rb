@@ -24,7 +24,9 @@ Rails.application.routes.draw do
     resources :comments, only: :create
     resources :customers, only: :index
     resources :catalog, only: :index
+    resources :devices, only: :create
     resources :diagnostics, only: :show
+    resources :events, only: :index
     resources :exports, only: :create
     resources :invoices, only: :show
     resources :libraries, only: [] do
@@ -34,6 +36,7 @@ Rails.application.routes.draw do
     resources :orders, only: %i[index create show]
     resources :products, only: :show
     resources :registrations, only: :create
+    resources :searches, only: :index
     resource :profile, only: %i[show update], controller: :profile
 
     get "reports/finance", to: "reports#show"
@@ -52,6 +55,7 @@ Rails.application.routes.draw do
 
     namespace :webhooks do
       resources :payments, only: :create
+      resources :shipments, only: :create
     end
   end
 end
