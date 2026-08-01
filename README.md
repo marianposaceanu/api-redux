@@ -2,6 +2,9 @@
 
 Opinionated practices for creating, documenting and managing APIs.
 
+Project overview and related Rails articles:
+[marianposaceanu.com/projects/http-api-design-guide-rails](https://marianposaceanu.com/projects/http-api-design-guide-rails)
+
 ### Table of contents
 
 - __[Prerequisites](#prerequisites)__
